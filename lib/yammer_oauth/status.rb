@@ -25,11 +25,5 @@ module YammerOAuth
       end
     end
 
-    def update(message,options = {})
-      oauth_response = access_token.post("/api/v1/messages/", :body => message)
-      JSON.parse(oauth_response.body)
-    end
-
-
   end
 end

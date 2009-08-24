@@ -1,3 +1,8 @@
+require 'yammer_oauth/account'
+require 'yammer_oauth/messages'
+require 'yammer_oauth/search'
+require 'yammer_oauth/status'
+
 module YammerOAuth
   class Client
     def initialize(options = {})
@@ -19,6 +24,10 @@ module YammerOAuth
       @token = @access_token.token
       @secret = @access_token.secret
       @access_token
+    end
+
+    def request_token(options = {})
+      consumer.get_request_token(options)
     end
 
     private
